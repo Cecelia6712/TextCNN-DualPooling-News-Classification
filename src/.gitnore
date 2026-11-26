@@ -1,0 +1,11 @@
+# Python 缓存
+__pycache__/
+*.py[cod]
+.venv/
+
+# 实验产物（不要上传！别人 clone 下来自己跑就行了）
+outputs/
+!outputs/.gitkeep
+
+# 系统文件
+.DS_Store
