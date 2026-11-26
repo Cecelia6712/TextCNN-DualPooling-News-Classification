@@ -87,9 +87,3 @@ python predict.py "华为P70即将发布 搭载鸿蒙NEXT系统"
 
 ***
 
-保存后，在 VSCode 终端依次运行：
-```bash
-git add README.md
-git commit -m "docs: update readme"
-git push
-```
