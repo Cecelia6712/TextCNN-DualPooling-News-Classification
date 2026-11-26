@@ -77,4 +77,3 @@ feats.append(torch.cat([h_max, h_attn], dim=1))
 *   遇到瓶颈，先写对照实验（TF-IDF）找上限。
 *   遇到 NaN，查 Mask，查 Log，查 `-inf`。
 *   没有绝对优秀的网络结构，只有最适合当前数据集特性与超参数配置的模型。
-```
