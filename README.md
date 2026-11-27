@@ -1,7 +1,7 @@
 
 ***
 
-# 🚀 TextCNN-DualPooling-News-Classification
+#  TextCNN-DualPooling-News-Classification
 
 <p align="center">
   <img src="https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch" alt="PyTorch">
@@ -12,14 +12,14 @@
 
 一个基于 PyTorch 从零构建的**中文新闻短文本 4 分类**（科技、体育、财经、娱乐）解决方案。本项目不仅实现了基础 TextCNN，还深入探究了小样本下的维度灾难问题，并创新性地提出了 **Dual Pooling (Max + Attention) 架构**，将模型最高测试准确率从 84.38% 突破至 **96.88%**。
 
-## ✨ 核心特性 (Key Features)
+##  核心特性 (Key Features)
 
-- **🧠 双池化融合架构 (Dual Pooling)**：摒弃了传统单一 Max Pooling 导致特征丢失的问题，将捕捉局部最强信号的 Max Pooling 与捕捉全局语义权重的 Attention Pooling 进行特征拼接融合，大幅提升模型上限。
-- **🛡️ 窗口级 Padding Mask**：针对中文短文本补齐零向量带来的特征污染，在卷积后引入 `-inf` Mask，确保池化层仅对有效感受野进行激活，并利用 `nan_to_num` 完美规避了反向传播时的 `NaN` 梯度爆炸。
-- **🔍 抗 OOV 的字级 Tokenize**：摒弃传统词级分词，采用“字级+英文词级”混合 Tokenize。有效解决小样本下由于词表稀疏（OOV）导致的 Embedding 训不动问题。
-- **📊 科学严谨的评估闭环**：包含 `diagnose.py`（数据质量诊断）、`analyze.py`（4层瓶颈诊断）、`baseline_tfidf.py`（传统 ML 对照实验），全面验证模型架构的有效性。
+- ** 双池化融合架构 (Dual Pooling)**：摒弃了传统单一 Max Pooling 导致特征丢失的问题，将捕捉局部最强信号的 Max Pooling 与捕捉全局语义权重的 Attention Pooling 进行特征拼接融合，大幅提升模型上限。
+- ** 窗口级 Padding Mask**：针对中文短文本补齐零向量带来的特征污染，在卷积后引入 `-inf` Mask，确保池化层仅对有效感受野进行激活，并利用 `nan_to_num` 完美规避了反向传播时的 `NaN` 梯度爆炸。
+- ** 抗 OOV 的字级 Tokenize**：摒弃传统词级分词，采用“字级+英文词级”混合 Tokenize。有效解决小样本下由于词表稀疏（OOV）导致的 Embedding 训不动问题。
+- ** 科学严谨的评估闭环**：包含 `diagnose.py`（数据质量诊断）、`analyze.py`（4层瓶颈诊断）、`baseline_tfidf.py`（传统 ML 对照实验），全面验证模型架构的有效性。
 
-## 📈 实验结果 (Benchmarks)
+##  实验结果 (Benchmarks)
 
 在 160 条精标语料上（128 训练集 / 32 测试集），进行 5-seed 独立交叉验证，对比不同架构表现：
 
@@ -27,11 +27,11 @@
 | :--- | :--- | :--- | :--- |
 | Baseline | Max Pooling | 90.62% | 0.8438 ± 0.0523 |
 | V2 (进阶) | Attention Pooling | 93.75% | 0.8500 ± 0.0606 |
-| **V3 (最终)** | **Dual Pooling (Max + Attn)** | **🔥 96.88%** | **0.8438 ± 0.0765** |
+| **V3 (最终)** | **Dual Pooling (Max + Attn)** | **96.88%** | **0.8438 ± 0.0765** |
 
 > *注：实验同时揭示了小样本下经典的 Bias-Variance Tradeoff（偏差-方差权衡）。复杂架构有效拉高了准确率上限，但也导致了方差膨胀，印证了“深度模型的第一性约束是数据规模”这一论断。*
 
-## 🛠️ 快速开始 (Quick Start)
+##  快速开始 (Quick Start)
 
 ### 1. 环境准备
 ```bash
@@ -56,7 +56,7 @@ python predict.py
 python predict.py "华为P70即将发布 搭载鸿蒙NEXT系统"
 ```
 
-## 📁 工程结构 (Project Structure)
+##  工程结构 (Project Structure)
 
 ```text
 ├── data/
@@ -73,7 +73,7 @@ python predict.py "华为P70即将发布 搭载鸿蒙NEXT系统"
 └── baseline_tfidf.py   # TF-IDF + Logistic Regression 朴素基线对照
 ```
 
-## 🧩 模块与理论映射
+##  模块与理论映射
 
 | 核心理论 | 代码实现位置 | 说明 |
 | :--- | :--- | :--- |
