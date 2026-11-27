@@ -14,10 +14,10 @@
 
 ##  核心特性 (Key Features)
 
-- ** 双池化融合架构 (Dual Pooling)**：摒弃了传统单一 Max Pooling 导致特征丢失的问题，将捕捉局部最强信号的 Max Pooling 与捕捉全局语义权重的 Attention Pooling 进行特征拼接融合，大幅提升模型上限。
-- ** 窗口级 Padding Mask**：针对中文短文本补齐零向量带来的特征污染，在卷积后引入 `-inf` Mask，确保池化层仅对有效感受野进行激活，并利用 `nan_to_num` 完美规避了反向传播时的 `NaN` 梯度爆炸。
-- ** 抗 OOV 的字级 Tokenize**：摒弃传统词级分词，采用“字级+英文词级”混合 Tokenize。有效解决小样本下由于词表稀疏（OOV）导致的 Embedding 训不动问题。
-- ** 科学严谨的评估闭环**：包含 `diagnose.py`（数据质量诊断）、`analyze.py`（4层瓶颈诊断）、`baseline_tfidf.py`（传统 ML 对照实验），全面验证模型架构的有效性。
+- **双池化融合架构 (Dual Pooling)**：摒弃了传统单一 Max Pooling 导致特征丢失的问题，将捕捉局部最强信号的 Max Pooling 与捕捉全局语义权重的 Attention Pooling 进行特征拼接融合，大幅提升模型上限。
+- **窗口级 Padding Mask**：针对中文短文本补齐零向量带来的特征污染，在卷积后引入 `-inf` Mask，确保池化层仅对有效感受野进行激活，并利用 `nan_to_num` 完美规避了反向传播时的 `NaN` 梯度爆炸。
+- **抗 OOV 的字级 Tokenize**：摒弃传统词级分词，采用“字级+英文词级”混合 Tokenize。有效解决小样本下由于词表稀疏（OOV）导致的 Embedding 训不动问题。
+- **科学严谨的评估闭环**：包含 `diagnose.py`（数据质量诊断）、`analyze.py`（4层瓶颈诊断）、`baseline_tfidf.py`（传统 ML 对照实验），全面验证模型架构的有效性。
 
 ##  实验结果 (Benchmarks)
 
